@@ -122,6 +122,9 @@ fabric.properties
 logs/
 *.log
 
+# Axon events files
+events/*
+
 # BlueJ files
 *.ctxt
 
