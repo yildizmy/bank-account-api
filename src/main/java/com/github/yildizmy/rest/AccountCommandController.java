@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.security.auth.login.AccountNotFoundException;
 import java.time.Clock;
 import java.time.Instant;
 import java.util.concurrent.CompletableFuture;
@@ -26,7 +27,8 @@ public class AccountCommandController {
     private final AccountCommandService accountCommandService;
 
     @PostMapping
-    public ResponseEntity<ApiResponse<CommandResponse>> createAccount(@RequestBody AccountRequest request) throws ExecutionException, InterruptedException {
+    public ResponseEntity<ApiResponse<CommandResponse>> createAccount(@RequestBody AccountRequest request)
+            throws ExecutionException, InterruptedException {
         final CompletableFuture<CommandResponse> response = accountCommandService.createAccount(request);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
@@ -35,14 +37,16 @@ public class AccountCommandController {
 
     @PutMapping(value = "/credit/{accountId}")
     public ResponseEntity<ApiResponse<CommandResponse>> creditMoneyToAccount(@PathVariable(value = "accountId") String accountId,
-                                                                             @RequestBody MoneyAmountRequest request) throws ExecutionException, InterruptedException {
+                                                                             @RequestBody MoneyAmountRequest request)
+            throws ExecutionException, InterruptedException, AccountNotFoundException {
         final CompletableFuture<CommandResponse> response = accountCommandService.creditMoneyToAccount(accountId, request);
         return ResponseEntity.ok(new ApiResponse<>(Instant.now(clock).toEpochMilli(), SUCCESS, response.get()));
     }
 
     @PutMapping("/debit/{accountId}")
     public ResponseEntity<ApiResponse<CommandResponse>> debitMoneyFromAccount(@PathVariable(value = "accountId") String accountId,
-                                                                              @RequestBody MoneyAmountRequest request) throws ExecutionException, InterruptedException {
+                                                                              @RequestBody MoneyAmountRequest request)
+            throws ExecutionException, InterruptedException, AccountNotFoundException {
         final CompletableFuture<CommandResponse> response = accountCommandService.debitMoneyFromAccount(accountId, request);
         return ResponseEntity.ok(new ApiResponse<>(Instant.now(clock).toEpochMilli(), SUCCESS, response.get()));
     }
