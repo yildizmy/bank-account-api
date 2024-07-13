@@ -11,17 +11,19 @@ Spring Boot demo application showcasing CQRS/Event Sourcing with Axon Framework 
 ### Description
 This project demonstrates CQRS (Command Query Responsibility Segregation) and Event Sourcing patterns using the Axon Framework and Axon Server.
 
-What is CQRS?
+What is CQRS?<br/>
 CQRS is a pattern that separates commands (write operations) from queries (read operations). By decoupling these two aspects of an application, CQRS helps to scale and optimize each operation independently.
 
-What is Event Sourcing?
+What is Event Sourcing?<br/>
 Event Sourcing is a pattern where state changes are stored as a sequence of events rather than as direct updates to the application's state. This approach provides a complete audit trail of all changes and enables rebuilding the current state by replaying events.
 
-Axon Framework
+Axon Framework<br/>
 Axon Framework is a powerful library for implementing CQRS and Event Sourcing in Java applications. It provides abstractions for handling commands, events, and queries, and simplifies the development of scalable and maintainable systems.
 
-Axon Server
+Axon Server<br/>
 Axon Server is a dedicated server for managing commands, events, and queries. It handles event storage, query management, and provides a centralized hub for the CQRS infrastructure.
+
+<br/>
 
 Features of This Project
 * CQRS Implementation: Demonstrates how to separate command and query responsibilities.
