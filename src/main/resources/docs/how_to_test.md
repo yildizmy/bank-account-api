@@ -12,6 +12,15 @@ For Open API (Swagger) Documentation UI and the endpoints, open http://localhost
 
 The [Postman Collection](postman/bank-account-api.postman_collection.json) shared in the resources can be modified and used for testing the endpoints.
 
+> [!TIP]
+> When running `create Account` method on Postman, `accountId` variable is automatically set using the following script. The other Postman methods e.g. `credit Money To Account` uses the last created 
+> `accountId` if its value is not changed on the request body.
+
+```javascript
+var jsonData = JSON.parse(responseBody);
+postman.setEnvironmentVariable("accountId", jsonData.data.id);
+```
+
 <br/>
 
 ### API Endpoints
