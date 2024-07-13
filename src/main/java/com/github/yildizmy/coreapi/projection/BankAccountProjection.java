@@ -41,7 +41,7 @@ public class BankAccountProjection {
     public void on(MoneyCreditedEvent event) throws AccountNotFoundException {
         log.info(HANDLING_ACCOUNT_CREDIT_COMMAND, event.getId());
         final BankAccount bankAccount = repository.findById(event.getId())
-                .orElseThrow(() -> new AccountNotFoundException(MessageFormat.format(CANNOT_FOUND_ACCOUNT_NUMBER, event.getId().toString())));
+                .orElseThrow(() -> new AccountNotFoundException(MessageFormat.format(ACCOUNT_NOT_FOUND, event.getId().toString())));
         bankAccount.setBalance(bankAccount.getBalance().add(event.getCreditAmount()));
         repository.save(bankAccount);
     }
@@ -50,7 +50,7 @@ public class BankAccountProjection {
     public void on(MoneyDebitedEvent event) throws AccountNotFoundException {
         log.info(HANDLING_ACCOUNT_DEBIT_COMMAND, event.getId());
         final BankAccount bankAccount = repository.findById(event.getId())
-                .orElseThrow(() -> new AccountNotFoundException(MessageFormat.format(CANNOT_FOUND_ACCOUNT_NUMBER, event.getId().toString())));
+                .orElseThrow(() -> new AccountNotFoundException(MessageFormat.format(ACCOUNT_NOT_FOUND, event.getId().toString())));
         bankAccount.setBalance(bankAccount.getBalance().subtract(event.getDebitAmount()));
         repository.save(bankAccount);
     }
