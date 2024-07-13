@@ -59,7 +59,7 @@ After starting the application container on Docker, Axon Server UI will be reach
 
 <br/>
 
-Click on Commands menu to list the executed commends:
+Click on Commands menu to list the executed commands:
 
 <img src="./images/axon_commands.png" width="1060"/>
 
