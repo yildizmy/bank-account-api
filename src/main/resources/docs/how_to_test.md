@@ -45,7 +45,7 @@ In order to connect to the H2 database using DBeaver, IntelliJ IDEA, etc. the fo
 jdbc:h2:tcp://localhost:9092/mem:bank_account_db
 ```
 
-<img src="./images/db_settings.png" alt="db settings" width="540"/>
+<img src="./images/db_settings.png" alt="db settings" width="640"/>
 
 <br/>
 <br/>
