@@ -3,7 +3,7 @@ Spring Boot demo application showcasing CQRS/Event Sourcing with Axon Framework 
 
 <br/>
 
-<img src="src/main/resources/docs/images/cqrs_design_pattern.png" width="720"/>
+<img src="src/main/resources/docs/images/cqrs_design_pattern.png" alt="cqrs design pattern" width="793"/>
 
 <br/>
 
