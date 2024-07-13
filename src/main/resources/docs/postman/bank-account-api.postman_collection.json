@@ -12,6 +12,19 @@
 			"item": [
 				{
 					"name": "create Account",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"accountId\", jsonData.data.id);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -257,7 +270,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"amount\": 1000\n}",
+							"raw": "{\n  \"amount\": 2000\n}",
 							"options": {
 								"raw": {
 									"headerFamily": "json",
@@ -280,7 +293,7 @@
 							"variable": [
 								{
 									"key": "accountId",
-									"value": "0e7c5b85-c889-42fd-a2d6-2656772f4f99"
+									"value": "{{accountId}}"
 								}
 							]
 						}
@@ -524,7 +537,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"amount\": 3000\n}",
+							"raw": "{\n  \"amount\": 1000\n}",
 							"options": {
 								"raw": {
 									"headerFamily": "json",
@@ -547,7 +560,7 @@
 							"variable": [
 								{
 									"key": "accountId",
-									"value": "0e7c5b85-c889-42fd-a2d6-2656772f4f99",
+									"value": "{{accountId}}",
 									"description": "(Required) "
 								}
 							]
@@ -801,7 +814,7 @@
 							"variable": [
 								{
 									"key": "accountId",
-									"value": "0e7c5b85-c889-42fd-a2d6-2656772f4f99",
+									"value": "{{accountId}}",
 									"description": "(Required) "
 								}
 							]
@@ -998,7 +1011,7 @@
 							"variable": [
 								{
 									"key": "accountId",
-									"value": "0e7c5b85-c889-42fd-a2d6-2656772f4f99",
+									"value": "{{accountId}}",
 									"description": "(Required) "
 								}
 							]
