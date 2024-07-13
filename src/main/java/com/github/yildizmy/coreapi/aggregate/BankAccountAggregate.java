@@ -79,7 +79,7 @@ public class BankAccountAggregate {
     @EventSourcingHandler
     public void on(MoneyDebitedEvent event) throws InsufficientBalanceException {
         if (balance.compareTo(event.getDebitAmount()) < 0) {
-            throw new InsufficientBalanceException(MessageFormat.format(INSUFFICIENT_BALANCE, event.getId(), event.getDebitAmount()));
+            throw new InsufficientBalanceException(MessageFormat.format(INSUFFICIENT_BALANCE, event.getDebitAmount(), event.getId()));
         }
         balance = balance.subtract(event.getDebitAmount());
     }
