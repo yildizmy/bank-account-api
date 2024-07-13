@@ -39,13 +39,13 @@ The [Postman Collection](postman/bank-account-api.postman_collection.json) share
 
 ### Connecting to H2 database
 
-In order to connect to the H2 database using DBeaver, IntelliJ IDEA, etc. the following url can be used:
+In order to connect to the H2 database using DBeaver, IntelliJ IDEA, etc. the following url can be used after running the application:
 
 ```
 jdbc:h2:tcp://localhost:9092/mem:bank_account_db
 ```
 
-<img src="./images/db_settings.png" width="720"/>
+<img src="./images/db_settings.png" alt="db settings" width="720"/>
 
 <br/>
 <br/>
@@ -55,25 +55,25 @@ jdbc:h2:tcp://localhost:9092/mem:bank_account_db
 
 After starting the application container on Docker, Axon Server UI will be reachable on http://localhost:8024/.
 
-<img src="./images/axon_ui.png" width="1060"/>
+<img src="./images/axon_ui.png" alt="axon ui" width="1060"/>
 
 <br/>
 
 Click on Commands menu to list the executed commands:
 
-<img src="./images/axon_commands.png" width="1060"/>
+<img src="./images/axon_commands.png" alt="axon commands" width="1060"/>
 
 <br/>
 
 Then, in order to list the queries, click on Queries menu:
 
-<img src="./images/axon_queries.png" width="1060"/>
+<img src="./images/axon_queries.png" alt="axon queries" width="1060"/>
 
 <br/>
 
 We can see all the events in the Search section. Click on Search button on the Search section to grab all events:
 
-<img src="./images/axon_search.png" width="1060"/>
+<img src="./images/axon_search.png" alt="axon search" width="1060"/>
 
 <br/>
 <br/>
