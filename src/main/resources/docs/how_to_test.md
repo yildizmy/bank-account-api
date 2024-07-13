@@ -82,7 +82,7 @@ We can see all the events in the Search section. Click on Search button on the S
 
 
 ### Unit & Integration Tests
-Unit Tests will be provided later in the corresponding packages.
+Unit Tests are provided in the corresponding package(s).
 
 <br/>
 <br/>
