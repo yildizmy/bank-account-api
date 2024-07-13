@@ -36,7 +36,7 @@ Features of This Project
 
 ### Getting Started
 
-In order to run and test the application, see details on [How to run?](src/main/resources/docs/how_to_run.md) and [How to test?](backend/src/main/resources/docs/how_to_test.md) sections.
+In order to run and test the application, see details on [How to run?](src/main/resources/docs/how_to_run.md) and [How to test?](src/main/resources/docs/how_to_test.md) sections.
 
 <br/>
 
