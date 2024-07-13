@@ -8,10 +8,10 @@ import org.springframework.context.annotation.Bean;
 import java.sql.SQLException;
 
 @SpringBootApplication
-public class BankAccountApiApplication {
+public class BankAccountApi {
 
     public static void main(String[] args) {
-        SpringApplication.run(BankAccountApiApplication.class, args);
+        SpringApplication.run(BankAccountApi.class, args);
     }
 
     // start internal h2 server so that we can query on the dB from IDE
