@@ -61,11 +61,6 @@ At this step, the application starts on http://localhost:8080/ and can be tested
 <br/>
 
 
-### Troubleshooting
-
-<br/>
-
-
 ### Documentation
 
 [docker compose up](https://docs.docker.com/engine/reference/commandline/compose_up/)<br/>
