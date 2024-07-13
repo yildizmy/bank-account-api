@@ -4,6 +4,8 @@
 
 For Open API (Swagger) Documentation UI and the endpoints, open http://localhost:8080/swagger-ui/index.html after running the app.
 
+<img src="./images/swagger.png" alt="swagger" width="640"/>
+
 <br/>
 
 ### Postman Collection
