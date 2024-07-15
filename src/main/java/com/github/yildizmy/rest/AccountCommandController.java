@@ -5,6 +5,7 @@ import com.github.yildizmy.dto.request.MoneyAmountRequest;
 import com.github.yildizmy.dto.response.ApiResponse;
 import com.github.yildizmy.dto.response.CommandResponse;
 import com.github.yildizmy.service.AccountCommandService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +28,7 @@ public class AccountCommandController {
     private final AccountCommandService accountCommandService;
 
     @PostMapping
-    public ResponseEntity<ApiResponse<CommandResponse>> createAccount(@RequestBody AccountRequest request)
+    public ResponseEntity<ApiResponse<CommandResponse>> createAccount(@Valid @RequestBody AccountRequest request)
             throws ExecutionException, InterruptedException {
         final CompletableFuture<CommandResponse> response = accountCommandService.createAccount(request);
         return ResponseEntity
@@ -37,7 +38,7 @@ public class AccountCommandController {
 
     @PutMapping(value = "/credit/{accountId}")
     public ResponseEntity<ApiResponse<CommandResponse>> creditMoneyToAccount(@PathVariable(value = "accountId") String accountId,
-                                                                             @RequestBody MoneyAmountRequest request)
+                                                                             @Valid @RequestBody MoneyAmountRequest request)
             throws ExecutionException, InterruptedException, AccountNotFoundException {
         final CompletableFuture<CommandResponse> response = accountCommandService.creditMoneyToAccount(accountId, request);
         return ResponseEntity.ok(new ApiResponse<>(Instant.now(clock).toEpochMilli(), SUCCESS, response.get()));
@@ -45,7 +46,7 @@ public class AccountCommandController {
 
     @PutMapping("/debit/{accountId}")
     public ResponseEntity<ApiResponse<CommandResponse>> debitMoneyFromAccount(@PathVariable(value = "accountId") String accountId,
-                                                                              @RequestBody MoneyAmountRequest request)
+                                                                              @Valid @RequestBody MoneyAmountRequest request)
             throws ExecutionException, InterruptedException, AccountNotFoundException {
         final CompletableFuture<CommandResponse> response = accountCommandService.debitMoneyFromAccount(accountId, request);
         return ResponseEntity.ok(new ApiResponse<>(Instant.now(clock).toEpochMilli(), SUCCESS, response.get()));
